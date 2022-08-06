@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editez l'article
+	{{article.title}}
+
+{% endblock %}
+
+{% block body %}
+	{# Lien pour retourner à l'accueil #}
+	<a class="text-decoration-none btn btn-space mx-5" href="{{ path('app_accueil') }}">
+		Retour
+	</a>
+	<section class="container">
+
+
+		{% if app.user %}
+			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+				<h1>Editer l'article</h1>
+				{# Formulaire d'édition #}
+				{{ include('articles/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+			{% endif %}
+		{% else %}
+			<p class="alert alert-danger text-center">Vous n'avez pas la permission d'éditez ceci</p>
+		{% endif %}
+	</section>
+{% endblock %}

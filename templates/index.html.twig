@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Accueil Space Blog
+{% endblock %}
+
+{% block body %}
+{# Section 1  #}
+
+<section class="container">
+
+	<div class="bg-accueil position-relative">
+		<div class="position-absolute title_accueil ">
+
+			<h1 class="text-uppercase text-white ">
+				<pre>
+            Découvrez <span class="text-space">l'espace </span>
+                comme jamais
+                    Auparavant
+                </pre>
+            
+            </h1>
+        </div>
+
+	</div>
+
+
+</section>
+
+{# Section 2 : les articles #}
+
+<section class="container my-5">
+
+	{% if app.user %}
+			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+				<div class="text-center"> 
+        
+        <p>Ajouter un nouvel article</p>
+
+       <a class="btn btn-info" href="{{path('app_articles_new')}}">Créer un nouvelle article</a>
+         </div>
+
+      {% endif %}
+      
+  {% endif %}
+
+
+<h2 class="text-space fw-bold">Nos Articles</h2>
+
+
+<div class="row my-5">
+
+
+
+{# Card #}
+
+{% for article in articles %}
+<div class="col-lg-4 col-md-6 col-12 my-5">
+<div class="card border-0">
+<a class="text-decoration-none" href="{{ path('app_articles_show', {'slug': article.slug}) }}">
+
+  <img src="{{ asset('asset/img/articles/' ~ article.cover) }}" class="card-img-top img-fluid" alt="{{article.title}}">
+  <div class="card-body">
+    <p class="card-text text-space">{{article.title}}</p>
+  </div>
+  </a>
+</div>
+  </div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+  
+  {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouvel article
+{% endblock %}
+
+{% block body %}
+	{# Lien pour retourner à l'accueil #}
+	<a class="text-decoration-none btn btn-space mx-3" href="{{ path('app_accueil') }}">
+		Retour
+	</a>
+
+	<section class="container">
+
+		{% if app.user %}
+			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+				<h1>Ajouter un nouvelle article</h1>
+
+
+				{{ include('articles/_form.html.twig') }}
+			{% endif %}
+
+		{% endif %}
+	</section>
+
+
+{% endblock %}

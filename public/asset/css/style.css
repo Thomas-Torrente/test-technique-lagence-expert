@@ -1,0 +1,76 @@
+/* Global */
+*  {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Color */
+:root {
+  --space-orange: #dc5e44;
+  --gris: #e4e6ec;
+  --blanc: #fff;
+}
+
+body {
+  background-color: var(--gris) !important;
+}
+
+.bg-space {
+  background-color: var(--space-orange);
+}
+
+.text-space {
+  color: var(--space-orange);
+}
+
+/* Btn */
+
+.btn-space {
+  background-color: var(--space-orange) !important;
+  color: var(--blanc) !important;
+  padding: 7px !important;
+  border-radius: 5px !important;
+}
+
+/* Header */
+
+header {
+  height: 105px;
+}
+
+/* FOOTER */
+
+footer {
+  height: 300px;
+}
+
+/* Accueil */
+
+.bg-accueil {
+  background-image: url("../img/bgc-section-accueil.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 420px;
+}
+
+/* Gestion du titre du BGC  */
+.title_accueil {
+  top: 35%;
+  right: 50%;
+}
+.title_accueil h1 {
+  font-size: 56px;
+  font-weight: bold;
+}
+
+/* ARTICLES */
+
+.card img {
+  object-fit: cover !important;
+  height: 250px;
+}
+
+.card {
+  border-radius: 30px !important;
+  height: 418px;
+}
