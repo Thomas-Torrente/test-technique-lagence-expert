@@ -21,22 +21,21 @@ class Articles
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, unique: true)]
+    #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\Column(length: 255, nullable: false)]
+
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $cover = null;
 
-
-    /* Attention ceci n'est pas une vrai erreur */
     #[Vich\UploadableField(mapping: 'articles', fileNameProperty: 'cover')]
     private ?File $imageFile = null;
 
 
-    #[ORM\Column(length: 255, unique: true)]
+    #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

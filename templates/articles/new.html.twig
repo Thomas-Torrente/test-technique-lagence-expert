@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un nouvel article
+{% block title %}Space Blog | Créer un nouvel article
 {% endblock %}
 
 {% block body %}
@@ -9,15 +9,20 @@
 		Retour
 	</a>
 
-	<section class="container">
-
+	<section
+		class="container">
+		{# Si l'utilisateur est connecter #}
 		{% if app.user %}
+			{# Et si son role est = à admin alors afficher le formulaire de création#}
 			{% if app.user.roles[0] == "ROLE_ADMIN" %}
 				<h1>Ajouter un nouvelle article</h1>
 
 
 				{{ include('articles/_form.html.twig') }}
+			{% else %}
+				<h1>Vous n'avez pas la permission de créer un article</h1>
 			{% endif %}
+
 
 		{% endif %}
 	</section>

@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Accueil Space Blog
+	Space Blog | Accueil
 {% endblock %}
 
 {% block body %}
 {# Section 1  #}
 
-<section class="container">
+<section
+	class="container">
+	{# Image de fond pour la section 1 de l'accueil #}
+	<div
+		class="bg-accueil position-relative">
 
-	<div class="bg-accueil position-relative">
+		{# Titre sur l'image  #}
 		<div class="position-absolute title_accueil ">
 
 			<h1 class="text-uppercase text-white ">
@@ -17,13 +21,11 @@
             Découvrez <span class="text-space">l'espace </span>
                 comme jamais
                     Auparavant
-                </pre>
-            
-            </h1>
-        </div>
+        </pre>
+        </h1>
+    </div>
 
 	</div>
-
 
 </section>
 
@@ -45,12 +47,8 @@
   {% endif %}
 
 
-<h2 class="text-space fw-bold">Nos Articles</h2>
-
 
 <div class="row my-5">
-
-
 
 {# Card #}
 
@@ -59,16 +57,14 @@
 <div class="card border-0">
 <a class="text-decoration-none" href="{{ path('app_articles_show', {'slug': article.slug}) }}">
 
-  <img src="{{ asset('asset/img/articles/' ~ article.cover) }}" class="card-img-top img-fluid" alt="{{article.title}}">
-  <div class="card-body">
-    <p class="card-text text-space">{{article.title}}</p>
-  </div>
+  <img src="{{ asset('asset/img/articles/' ~ article.cover) }}" class="card-img-top img-fluid" alt="{{article.title}}" >
+    <div class="card-body">
+       <p class="card-text text-space">{{article.title}}</p>
+   </div>
   </a>
-</div>
+      </div>
   </div>
 {% endfor %}
-
-
 
 
 
@@ -82,6 +78,5 @@
 </section>
 
 
-
   
-  {% endblock %}
+{% endblock %}

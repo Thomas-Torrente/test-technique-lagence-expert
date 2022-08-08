@@ -3,15 +3,15 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: var(--gris) !important;
+}
+
 /* Color */
 :root {
   --space-orange: #dc5e44;
   --gris: #e4e6ec;
   --blanc: #fff;
-}
-
-body {
-  background-color: var(--gris) !important;
 }
 
 .bg-space {
@@ -73,4 +73,18 @@ footer {
 .card {
   border-radius: 30px !important;
   height: 418px;
+}
+
+/* Media queries */
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .title_accueil {
+    top: 40%;
+    right: 40%;
+  }
+  .title_accueil h1 {
+    font-size: 36px;
+    font-weight: bold;
+  }
 }

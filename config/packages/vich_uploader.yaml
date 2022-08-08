@@ -8,6 +8,6 @@ vich_uploader:
       uri_prefix: asset/img/articles
       upload_destination: "%kernel.project_dir%/public/asset/img/articles"
       inject_on_load: false
-      delete_on_update: true
+      delete_on_update: false
       delete_on_remove: true
       namer: Vich\UploaderBundle\Naming\UniqidNamer

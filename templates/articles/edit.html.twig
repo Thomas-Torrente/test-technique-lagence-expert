@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editez l'article
+{% block title %}Space Blog | Editer l'article :
 	{{article.title}}
 
 {% endblock %}
@@ -10,10 +10,12 @@
 	<a class="text-decoration-none btn btn-space mx-5" href="{{ path('app_accueil') }}">
 		Retour
 	</a>
-	<section class="container">
+	<section
+		class="container">
 
-
+		{# Si l'utilisateur est connecter #}
 		{% if app.user %}
+			{# Et que le role de l'user est admin alors on affiche le formulaire d'édit #}
 			{% if app.user.roles[0] == "ROLE_ADMIN" %}
 				<h1>Editer l'article</h1>
 				{# Formulaire d'édition #}

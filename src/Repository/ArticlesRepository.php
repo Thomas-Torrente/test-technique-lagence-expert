@@ -23,6 +23,9 @@ class ArticlesRepository extends ServiceEntityRepository
 
     public function add(Articles $entity, bool $flush = false): void
     {
+
+        /*   dump($entity);
+        die; */
         $this->getEntityManager()->persist($entity);
 
         if ($flush) {
@@ -50,28 +53,4 @@ class ArticlesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
-
-
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('a.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Articles
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

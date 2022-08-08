@@ -24,6 +24,7 @@ class ArticlesController extends AbstractController
     #[Route('/nouveau', name: 'app_articles_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ArticlesRepository $articlesRepository): Response
     {
+
         $article = new Articles();
         $form = $this->createForm(ArticlesType::class, $article);
         $form->handleRequest($request);
@@ -58,6 +59,8 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /*             dd($article);
+ */
             $articlesRepository->add($article, true);
 
             return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
@@ -69,13 +72,14 @@ class ArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_articles_delete', methods: ['POST'])]
+    #[Route('/{slug}', name: 'app_articles_delete', methods: ['POST'])]
     public function delete(Request $request, Articles $article, ArticlesRepository $articlesRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
+            $article->setCover('');
             $articlesRepository->remove($article, true);
         }
 
-        return $this->redirectToRoute('app_articles_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
     }
 }
